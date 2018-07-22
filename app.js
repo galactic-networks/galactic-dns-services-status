@@ -1,11 +1,21 @@
 var http = require('http');
 var locale = require('locale');
-var supported = new locale.Locales(["en_US", "en", "ru", "uk"]);
+var supported = new locale.Locales(["en", "ru", "uk"]);
 
 var server = http.createServer(function(request, response) {
     var locales = new locale.Locales(request.headers["accept-language"]);
     response.writeHead(200, {"Content-Type": "text/plain"});
-    response.end("Hello World! Your language: " + locales.best(supported));
+    var bestLocale = locales.best(supported);
+
+    if (bestLocale == "ru") {
+        response.end("Привет мир! Ваш язык: " + bestLocale);
+    }
+    else if (bestLocale == "uk") {
+        response.end("Прывит мыру! Ваша мова: " + bestLocale);
+    }
+    else {
+        response.end("Hello World! Your language: " + bestLocale);
+    }
 
 });
 
