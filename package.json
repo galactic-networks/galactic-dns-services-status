@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/galactic-networks/galactic-dns-services-status#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "locale": "^0.1.0"
   }
 }
