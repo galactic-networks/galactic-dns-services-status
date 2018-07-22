@@ -4,7 +4,7 @@ var supported = new locale.Locales(["en", "ru", "uk"]);
 
 var server = http.createServer(function(request, response) {
     var locales = new locale.Locales(request.headers["accept-language"]);
-    response.writeHead(200, {"Content-Type": "text/plain"});
+    response.writeHead(200, {"Content-Type": "text/html"});
     var bestLocale = locales.best(supported);
 
     if (bestLocale == "ru") {
